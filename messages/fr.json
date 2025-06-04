@@ -1,0 +1,67 @@
+{
+  "HomePage": {
+    "title": "Medi Pharma",
+    "description": "Notre application médicale simplifie la gestion des dossiers patients et les consultations médicales. Les médecins peuvent stocker en toute sécurité les dossiers des patients, gérer efficacement les consultations et envoyer des ordonnances directement aux pharmacies partenaires en temps réel. Améliorez la prestation des soins de santé avec une solution numérique tout-en-un.",
+    "joinus": "Rejoignez-nous",
+    "UpBar": {
+      "login": "Connexion",
+      "register": "S'inscrire",
+      "home": "Accueil",
+      "dashboard": "Tableau de bord",
+      "logout": "Déconnexion",
+      "lang": {
+        "ar": "Arabe",
+        "en": "Anglais",
+        "fr": "Français"
+      }
+    }
+  },
+  "Dashboard": {
+    "UpBar": {
+      "Leave": "Quitter",
+      "Home": "Accueil"
+    },
+    "NavBar": {
+      "Home": "Accueil",
+      "Admins": "Administrateurs",
+      "Patients": "Patients",
+      "Doctors": "Médecins",
+      "Pharmacies": "Pharmacies",
+      "Sessions": "Sessions",
+      "Queues": "Files d'attente"
+    },
+    "Patients": {
+      "Title": "Patients",
+      "Create": "Créer un patient",
+      "Form": {
+        "Name": "Prénom",
+        "Last": "Nom",
+        "DateOfBirth": "Date de naissance",
+        "Phone": "Téléphone",
+        "Email": "Email",
+        "BaladiyaId": "ID Baladiya",
+        "Description": "Description"
+      },
+      "CreateMessages": {
+        "Success": "Patient créé avec succès !",
+        "Error": "Erreur lors de la création du patient.",
+        "Submit": "Créer le patient"
+      },
+      "Delete": {
+        "Confirm": "Êtes-vous sûr de vouloir supprimer ce patient ?",
+        "Submit": "Supprimer le patient"
+      },
+      "Key": {
+        "Create": {
+          "Success": "Clé créée avec succès !",
+          "Error": "Erreur lors de la création de la clé.",
+          "Submit": "Créer une clé",
+          "Confirm": "Êtes-vous sûr de vouloir créer une clé pour ce patient ?"
+        }
+      }
+    }
+  },
+  "Common": {
+    "Cancel": "Annuler"
+  }
+}

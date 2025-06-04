@@ -1,0 +1,69 @@
+{
+  "HomePage": {
+    "title": "Medi Pharma",
+    "description": "Our medical application streamlines patient file management and simplifies medical sessions. Doctors can securely store patient records, manage consultations efficiently, and send prescriptions directly to partnered pharmacies in real-time. Enhance healthcare delivery with an all-in-one digital solution.",
+    "joinus": "Join Us",
+    "UpBar": {
+      "login": "Login",
+      "register": "Register",
+      "home": "Home",
+      "dashboard": "Dashboard",
+      "docs": "My Docs",
+      "prescriptions": "Prescriptions",
+      "logout": "Log Out",
+      "lang": {
+        "ar": "Arabic",
+        "en": "English",
+        "fr": "French"
+      }
+    }
+  },
+  "Dashboard": {
+    "UpBar": {
+      "Leave": "Leave",
+      "Home": "Home"
+    },
+    "NavBar": {
+      "Home": "Home",
+      "Admins": "Admins",
+      "Patients": "Patients",
+      "Doctors": "Doctors",
+      "Pharmacies": "Pharmacies",
+      "Sessions": "Sessions",
+      "Queues": "Queues"
+    },
+    "Patients": {
+      "Title": "Patients",
+      "Create": "Create Patient",
+      "Form": {
+        "Name": "Name",
+        "Last": "Last Name",
+        "DateOfBirth": "Date of Birth",
+        "Phone": "Phone",
+        "Email": "Email",
+        "BaladiyaId": "Baladiya ID",
+        "Description": "Description"
+      },
+      "CreateMessages": {
+        "Success": "Patient created successfully!",
+        "Error": "Error creating patient.",
+        "Submit": "Create Patient"
+      },
+      "Delete": {
+        "Confirm": "Are you sure you want to delete this patient?",
+        "Submit": "Delete Patient"
+      },
+      "Key": {
+        "Create": {
+          "Success": "Key created successfully!",
+          "Error": "Error creating key.",
+          "Submit": "Create Key",
+          "Confirm": "Are you sure you want to create a key for this patient?"
+        }
+      }
+    }
+  },
+  "Common": {
+    "Cancel": "Cancel"
+  }
+}
