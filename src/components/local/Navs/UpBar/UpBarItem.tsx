@@ -18,7 +18,7 @@ export function UpBarItem({ children, href, className, icon, mode = "link", onCl
                 </button>
             ) : mode === "link" ? (
                 <Link href={href ?? "#"}
-                    className={cn("flex items-center gap-2 py-2 lg:py-0 px-4 text-title-medium cursor-pointer lg:text-on-secondary lg:dark:text-dark-on-secondary  hover:opacity-80", isActive && " font-bold", className)}
+                    className={cn("flex items-center gap-2 py-2 lg:py-0 px-4 text-title-medium cursor-pointer lg:text-on-secondary lg:dark:text-dark-on-secondary  hover:opacity-80", isActive && " font-bold ", className)}
                 >
                     {icon && <span className="mr-2">{icon}</span>}
                     {children}

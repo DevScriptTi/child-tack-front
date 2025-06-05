@@ -14,7 +14,7 @@ export async function middleware(request: NextRequest) {
 
   const pathname = request.nextUrl.pathname;
   const locale = pathname.split('/')[1];
-  const isAuthenticated = true;
+  const isAuthenticated = false;
 
   // Check if the current path is a protected route
   const isProtectedRoute = protectedRoutes.some(route => pathname.includes(route));

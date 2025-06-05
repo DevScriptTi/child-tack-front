@@ -8,19 +8,25 @@ export default async function UpBar({ children }: { children: React.ReactNode })
     const locale = await getLocale();
     return (
         <header
-            className="sticky z-10  h-header w-full px-2 md:px-4 lg:px-8 flex items-center "
+            className="sticky z-10  h-header w-full px-2 md:px-4 lg:px-8 flex items-center bg-secondary dark:bg-dark-secondary"
         >
             <UpBarItem href={`/${locale}`} className="text-on-secondary dark:text-dark-on-secondary font-normal">Logo</UpBarItem>
             <Mode />
             <Lang />
             <nav id="NavBarItemsToggled" className="lg:grow
-            absolute top-header start-2 w-[calc(100%_-_16px)] lg:static lg:bg-transparent lg:flex lg:justify-center  bg-surface-container  dark:bg-dark-surface-container 
+            absolute top-header start-2 w-[calc(100%_-_16px)] lg:static lg:bg-transparent lg:dark:bg-transparent lg:flex lg:justify-center  bg-surface-container  dark:bg-dark-surface-container 
             ">
                 <ul className="flex flex-col  lg:flex-row lg:items-center">
                     {children}
                 </ul>
             </nav>
-            <ToggleUpBar />
+            <div
+                className="grow flex justify-end items-center "
+            >
+                <UpBarItem href={`/${locale}/login`}  className="text-on-secondary dark:text-dark-on-secondary">Login</UpBarItem>
+                <UpBarItem href={`/${locale}/register`} className="text-on-secondary dark:text-dark-on-secondary" >Register</UpBarItem>
+                <ToggleUpBar />
+            </div>
         </header>
     )
 }

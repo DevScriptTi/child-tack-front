@@ -1,5 +1,5 @@
 "use client";
-import { Menu} from "lucide-react";
+import { Menu } from "lucide-react";
 
 export default function ToggleUpBar() {
     const toggleUpBar = () => {
@@ -9,10 +9,6 @@ export default function ToggleUpBar() {
         }
     };
     return (
-        <div
-            className="grow flex justify-end lg:hidden"
-        >
-            <Menu onClick={toggleUpBar} className="text-on-secondary dark:text-dark-on-secondary" size={24} />
-        </div>
+        <Menu onClick={toggleUpBar} className="lg:hidden text-on-secondary dark:text-dark-on-secondary" size={24} />
     );
 }
