@@ -1,24 +1,30 @@
-export default function UpBar({ children }: { children: React.ReactNode }) {
+import { getLocale } from "next-intl/server";
+import Lang from "../Lang"
+import Mode from "../Mode"
+import { UpBarItem } from "./UpBarItem"
+import ToggleUpBar from "./ToggelUpBar";
+
+export default async function UpBar({ children }: { children: React.ReactNode }) {
+    const locale = await getLocale();
     return (
         <header
-            className="sticky z-10 md:p-2 lg:p-4 flex items-center h-header "
+            className="sticky z-10  h-header w-full px-2 md:px-4 lg:px-8 flex items-center "
         >
-            {children}
+            <UpBarItem href={`/${locale}`} className="text-on-secondary dark:text-dark-on-secondary font-normal">Logo</UpBarItem>
+            <Mode />
+            <Lang />
+            <nav id="NavBarItemsToggled" className="lg:grow
+            absolute top-header start-2 w-[calc(100%_-_16px)] lg:static lg:bg-transparent lg:flex lg:justify-center  bg-surface-container  dark:bg-dark-surface-container 
+            ">
+                <ul className="flex flex-col  lg:flex-row lg:items-center">
+                    {children}
+                </ul>
+            </nav>
+            <ToggleUpBar />
         </header>
     )
 }
 
-
-export function UpBarGroup({ children, grow }: { children: React.ReactNode, grow?: boolean }) {
-    return (
-        <nav className={grow ? "grow" : ""}>
-            <ul className="flex items-center">
-                {children}
-            </ul>
-        </nav>
-
-    )
-}
 
 
 

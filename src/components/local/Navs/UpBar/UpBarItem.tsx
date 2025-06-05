@@ -10,7 +10,7 @@ export function UpBarItem({ children, href, className, icon, mode = "link", onCl
         <li className="block">
             {mode === "button" ? (
                 <button
-                    className={cn("flex items-center gap-2 px-4 text-title-medium cursor-pointer text-on-secondary dark:text-dark-on-secondary  hover:opacity-80", className)}
+                    className={cn("flex items-center gap-2 py-2 lg:py-0 px-4 text-title-medium cursor-pointer lg:text-on-secondary lg:dark:text-dark-on-secondary  hover:opacity-80", className)}
                     onClick={onClick}
                 >
                     {icon && <span className="mr-2">{icon}</span>}
@@ -18,13 +18,13 @@ export function UpBarItem({ children, href, className, icon, mode = "link", onCl
                 </button>
             ) : mode === "link" ? (
                 <Link href={href ?? "#"}
-                    className={cn("flex items-center gap-2 px-4 text-title-medium cursor-pointer text-on-secondary dark:text-dark-on-secondary  hover:opacity-80", isActive && " font-bold", className)}
+                    className={cn("flex items-center gap-2 py-2 lg:py-0 px-4 text-title-medium cursor-pointer lg:text-on-secondary lg:dark:text-dark-on-secondary  hover:opacity-80", isActive && " font-bold", className)}
                 >
                     {icon && <span className="mr-2">{icon}</span>}
                     {children}
                 </Link>
             ) : mode === "icon" ? (
-                <div className="flex items-center gap-2 px-4 text-title-medium cursor-pointer text-on-secondary dark:text-dark-on-secondary  hover:opacity-80">
+                <div className="flex items-center gap-2 py-2 lg:py-0 px-4 text-title-medium cursor-pointer lg:text-on-secondary lg:dark:text-dark-on-secondary  hover:opacity-80">
                     {icon}
                 </div>
             ) : null}
