@@ -1,7 +1,7 @@
 export default function UpBar({ children }: { children: React.ReactNode }) {
     return (
         <header
-            className="sticky z-10 md:p-2 lg:p-4 flex items-center h-header bg-primary "
+            className="sticky z-10 md:p-2 lg:p-4 flex items-center h-header "
         >
             {children}
         </header>

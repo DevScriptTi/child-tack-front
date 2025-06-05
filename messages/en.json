@@ -1,14 +1,13 @@
 {
   "HomePage": {
-    "title": "Medi Pharma",
-    "description": "Our medical application streamlines patient file management and simplifies medical sessions. Doctors can securely store patient records, manage consultations efficiently, and send prescriptions directly to partnered pharmacies in real-time. Enhance healthcare delivery with an all-in-one digital solution.",
-    "joinus": "Join Us",
+    "title": "Because Your Peace of Mind Begins with Protecting Your Child!",
+    "description": "Our smart bracelet features technologies that allow you to monitor your child's location at any time, with smart alerts detecting dangerous areas nearby. It also includes a dedicated safety button, enabling your child to send an instant alert when needed. Freedom to explore for them, peace of mind for you... because their safety is our top priority!",
+    "joinus": "Join us",
     "UpBar": {
       "login": "Login",
       "register": "Register",
       "home": "Home",
       "dashboard": "Dashboard",
-      "docs": "My Docs",
       "prescriptions": "Prescriptions",
       "logout": "Log Out",
       "lang": {
