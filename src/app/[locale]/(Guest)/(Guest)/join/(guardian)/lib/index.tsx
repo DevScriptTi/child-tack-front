@@ -1,13 +1,13 @@
 import { getTranslations } from "next-intl/server";
-import { AuthCard, AuthTitle } from "../../AuthComponents";
-import LoginForm from "./Form";
+import { AuthCard, AuthTitle } from "../AuthComponents";
+import GuardianJoinForm from "./Form";
 
-export default async function LoginIndex() {
-    const t = await getTranslations('Auth.login')
+export default async function GuardianIndex() {
+    const t = await getTranslations('Auth.join')
     return (
         <AuthCard>
             <AuthTitle title={t('title')} />
-            <LoginForm />
+            <GuardianJoinForm />
             <div
                 className="text"
             >

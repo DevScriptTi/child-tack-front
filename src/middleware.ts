@@ -2,6 +2,7 @@ import createMiddleware from 'next-intl/middleware';
 import { routing } from './i18n/routing';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { isAuth } from './lib/server/tools/auth';
 
 // Define protected and public routes
 const protectedRoutes = ['/dashboard', '/logout'];
@@ -14,7 +15,7 @@ export async function middleware(request: NextRequest) {
 
   const pathname = request.nextUrl.pathname;
   const locale = pathname.split('/')[1];
-  const isAuthenticated = false;
+  const isAuthenticated = await isAuth();
 
   // Check if the current path is a protected route
   const isProtectedRoute = protectedRoutes.some(route => pathname.includes(route));

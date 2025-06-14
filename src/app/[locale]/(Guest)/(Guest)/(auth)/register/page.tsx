@@ -1,7 +1,13 @@
+import { AuthLayout, AuthPictureLayout } from "../AuthComponents";
+import RegisterIndex from "./lib";
+
 export default function register() {
     return (
         <>
-            Register
+            <AuthLayout>
+                <RegisterIndex />
+                <AuthPictureLayout src="/login.png" />
+            </AuthLayout>
         </>
     )
 }

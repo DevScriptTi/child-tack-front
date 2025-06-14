@@ -5,7 +5,7 @@
     "joinus": "انضم الينا",
     "UpBar": {
       "login": "تسجيل الدخول",
-      "register": "تسجيل",
+      "register": "إنشاء حساب",
       "home": "الرئيسية",
       "dashboard": "لوحة التحكم",
       "logout": "تسجيل الخروج",
@@ -14,6 +14,44 @@
         "en": "الإنجليزية",
         "fr": "الفرنسية"
       }
+    }
+  },
+  "Auth": {
+    "login": {
+      "title": "تسجيل الدخول الآن",
+      "email_title": "البريد الإلكتروني",
+      "email_place_holder": "أدخل بريدك الإلكتروني",
+      "password_title": "كلمة المرور",
+      "password_place_holder": "أدخل كلمة المرور",
+      "submit": "إرسال"
+    },
+    "register": {
+      "title": "سجّل الآن",
+      "email_title": "البريد الإلكتروني",
+      "email_place_holder": "أدخل بريدك الإلكتروني",
+      "password_title": "كلمة المرور",
+      "password_place_holder": "أدخل كلمة المرور",
+      "password_confirmation_title": "تأكيد كلمة المرور",
+      "password_confirmation_place_holder": "أعد إدخال كلمة المرور",
+      "key_title": "رمز التسجيل",
+      "key_place_holder": "أدخل رمز التسجيل",
+      "submit": "تسجيل"
+    },
+    "join": {
+      "title": "انضم إلينا",
+      "username_title": "اسم المستخدم",
+      "username_place_holder": "أدخل اسم المستخدم",
+      "name_title": "الاسم الأول",
+      "name_place_holder": "أدخل الاسم الأول",
+      "last_title": "اللقب",
+      "last_place_holder": "أدخل اللقب",
+      "date_of_birth_title": "تاريخ الميلاد",
+      "wilaya_id_title": "الولاية",
+      "wilaya_id_place_holder": "اختر ولايتك",
+      "date_of_birth_place_holder": "اختر تاريخ الميلاد",
+      "baladya_id_title": "البلدية",
+      "baladya_id_place_holder": "اختر بلديتك",
+      "submit": "انضم"
     }
   },
   "Dashboard": {
