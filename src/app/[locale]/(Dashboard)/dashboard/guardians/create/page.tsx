@@ -1,5 +1,5 @@
 import { DashContenTitle } from "@/components/DashCrudContent";
-import CreateAdminForm from "@/components/local/admin/CreateAdminForm";
+import GuardianJoinForm from "@/components/local/guardian/CreateGuardianForm";
 import DashSection from "@/components/Section/Section";
 
 export default function Create() {
@@ -8,7 +8,7 @@ export default function Create() {
             <DashContenTitle>Create Guardian</DashContenTitle>
             <div className="mb-5"></div>
             <div className="w-1/3">
-                <CreateAdminForm />
+                <GuardianJoinForm />
             </div>
         </DashSection>
     )

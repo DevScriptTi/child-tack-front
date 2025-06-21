@@ -30,7 +30,8 @@ export const ChildrenProvider = ({ children }: { children: ReactNode }) => {
         try {
             const data = await getChildrens();
             console.log('Fetched children:', data);
-            setState(prev => ({ ...prev, children: data.data }));
+            const locatedChildren = data.data.filter(child => child.braclet?.location != null)
+            setState(prev => ({ ...prev, children: locatedChildren }));
         } finally {
             setState(prev => ({ ...prev, loading: false }));
         }
@@ -38,6 +39,8 @@ export const ChildrenProvider = ({ children }: { children: ReactNode }) => {
 
     useEffect(() => {
         refreshChildren();
+        // const interval = setInterval(refreshChildren, 5000);
+        // return () => clearInterval(interval);
     }, []);
 
     return (

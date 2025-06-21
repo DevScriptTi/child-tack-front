@@ -1,6 +1,6 @@
 "use client";
 
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Check } from "lucide-react";
@@ -8,6 +8,10 @@ import { Input } from "@/components/Inputs/inputs";
 import Button from "@/components/Buttons/Button";
 import { Guardian } from "@/lib/server/type/guardian/guardian";
 import { updateGuardian } from "@/lib/server/actions/gurdians/guardianAction";
+import { useEffect, useState } from "react";
+import { getAllWilayas, Wilaya } from "@/lib/server/actions/wilaya/wilayaAcitons";
+import { useTranslations } from "next-intl";
+import { SimpleSelect } from "@/components/Inputs/SimpleSelect";
 
 const updateGuardianSchema = z.object({
     name: z.string()
@@ -19,6 +23,7 @@ const updateGuardianSchema = z.object({
         .regex(/^[A-Z]/, "First letter must be capital")
         .regex(/^[A-Z][a-z]*$/, "Only letters are allowed"),
     date_of_birth: z.string(), // Format: YYYY-MM-DD
+    wilaya_id : z.string(),
     baladya_id: z.string(),
 });
 
@@ -32,15 +37,32 @@ export default function UpdateGuardianForm({ guardian }: UpdateGuardianFormProps
     const {
         register,
         handleSubmit,
+        setValue,
+        watch,
         formState: { errors, isSubmitting, isSubmitSuccessful },
     } = useForm<UpdateGuardianFormData>({
         resolver: zodResolver(updateGuardianSchema),
         defaultValues: {
             name: guardian.name,
             last: guardian.last,
+            date_of_birth: guardian.date_of_birth,
+            baladya_id: guardian.baladya_id.toString()
         },
     });
+    const [wilayas, setWilayas] = useState<Wilaya[]>([])
+   
+    const t = useTranslations('Auth.join')
+    useEffect(() => {
+        const fetchWilayas = async () => {
+            const response = await getAllWilayas()
+            setWilayas(response.data)
+            setValue('wilaya_id' , guardian.baladya.wilaya_id.toString())
+            setValue('baladya_id' , guardian.baladya_id.toString())
+        }
+        fetchWilayas()
+    }, [])
 
+    console.log(errors)
     const onSubmit = async (data: UpdateGuardianFormData) => {
         try {
             await updateGuardian(guardian.id, data);
@@ -60,18 +82,59 @@ export default function UpdateGuardianForm({ guardian }: UpdateGuardianFormProps
             )}
             <Input
                 label="name"
-                title="Name"
-                placeholder="Enter name (First letter capital)"
-                error={errors.name?.message}
+                title={t('name_title')}
+                placeholder={t('name_place_holder')}
                 register={register}
+                error={errors.name?.message}
             />
             <Input
                 label="last"
-                title="Last Name"
-                placeholder="Enter last name (First letter capital)"
-                error={errors.last?.message}
+                title={t('last_title')}
+                placeholder={t('last_place_holder')}
                 register={register}
+                error={errors.last?.message}
             />
+            <Input
+                label="date_of_birth"
+                title={t('date_of_birth_title')}
+                placeholder={t('date_of_birth_place_holder')}
+                type="date"
+                register={register}
+                error={errors.date_of_birth?.message}
+            />
+            <SimpleSelect
+                label="wilaya_id"
+                title={t('wilaya_id_title')}
+                register={register('wilaya_id')}
+                error={errors.wilaya_id?.message}
+                onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+                    setValue("wilaya_id", e.target.value);
+                }}
+            >
+                <option></option>
+                {
+                    wilayas?.map(wilaya =>
+                        <option key={wilaya.id} value={wilaya.id}>{wilaya.name}</option>
+                    )
+                }
+            </SimpleSelect>
+            {
+                watch("wilaya_id") && (
+                    <SimpleSelect
+                        label="baliday_id"
+                        title={t('baladya_id_title')}
+                        register={register('baladya_id')}
+                        error={errors.wilaya_id?.message}
+                    >
+                        <option></option>
+                        {
+                            wilayas?.find(wilaya => wilaya.id === +watch("wilaya_id"))?.baladya?.map(baladiya => (
+                                <option key={baladiya.id} value={baladiya.id}>{baladiya.name}</option>
+                            ))
+                        }
+                    </SimpleSelect>
+                )
+            }
             <Button
                 type="submit"
                 mode="filled"

@@ -1,4 +1,4 @@
-import "server-only";
+'use server'
 import { cookies } from "next/headers";
 import { decrypt } from "./session";
 import { getUser } from "../join/getUser";

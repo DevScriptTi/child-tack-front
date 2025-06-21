@@ -9,6 +9,8 @@ import { useLocale, useTranslations } from "next-intl";
 import { login } from "@/lib/server/join/login";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { getUser } from "@/lib/server/join/getUser";
+import { isAdmin } from "@/lib/server/tools/auth";
 const LoginShema = z.object({
     email: z.string().email(),
     password: z.string().min(8, "Password must at list 8 char")
@@ -41,7 +43,12 @@ export default function LoginForm() {
                     });
                 }
             } else {
-                route.push(`/${locale}/dashboard`)
+                
+                if (await isAdmin()) {
+                    route.push(`/${locale}/dashboard`)
+                }else{
+                    route.push(`/${locale}/guardian`)
+                }
             }
         } catch (error) {
             throw error
