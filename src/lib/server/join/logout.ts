@@ -5,7 +5,7 @@ import { revalidatePath } from "next/cache"
 
 export async function logout(): Promise<{ success: boolean }> {
     try {
-        
+        console.log("hi");
         const data = await axiosInstance.post('/auth/logout')
         console.log('Logout response:', data.data)
         // // Delete session cookie
