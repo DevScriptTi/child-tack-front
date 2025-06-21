@@ -42,9 +42,9 @@ export default function LoginForm() {
                         message: response.error.errors.password[0]
                     });
                 }
-            } else {
-                
-                if (await isAdmin()) {
+            } else {     
+                console.log(response.type)           
+                if (response.type === 'admin') {
                     route.push(`/${locale}/dashboard`)
                 }else{
                     route.push(`/${locale}/guardian`)
