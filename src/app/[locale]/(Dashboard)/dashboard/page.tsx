@@ -10,7 +10,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 
 interface PageProps {
-    searchParams: { page?: string }
+    searchParams: Promise<{ page?: string }>
 }
 
 export default async function AdminPage({ searchParams }: PageProps) {

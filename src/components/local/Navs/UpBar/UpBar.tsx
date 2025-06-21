@@ -3,6 +3,9 @@ import Lang from "../Lang"
 import Mode from "../Mode"
 import { UpBarItem } from "./UpBarItem"
 import ToggleUpBar from "./ToggelUpBar";
+import { isAdmin, isAuth } from "@/lib/server/tools/auth";
+import Logout from "./logout";
+import Image from "next/image";
 
 export default async function UpBar({ children }: { children: React.ReactNode }) {
     const locale = await getLocale();
@@ -11,7 +14,9 @@ export default async function UpBar({ children }: { children: React.ReactNode })
         <header
             className="sticky z-10  h-header w-full px-2 md:px-4 lg:px-8 flex items-center bg-secondary dark:bg-dark-secondary"
         >
-            <UpBarItem href={`/${locale}`} className="text-on-secondary dark:text-dark-on-secondary font-normal">Logo</UpBarItem>
+            <UpBarItem href={`/${locale}`} className="text-on-secondary dark:text-dark-on-secondary font-normal">
+               <Image src={'/logo.png'} alt="logo" className="size-36" width={500} height={500}/>
+            </UpBarItem>
             <Mode />
             <Lang />
             <nav id="NavBarItemsToggled" className="hidden lg:grow
@@ -24,8 +29,29 @@ export default async function UpBar({ children }: { children: React.ReactNode })
             <div
                 className="grow flex justify-end items-center "
             >
-                <UpBarItem href={`/${locale}/login`}  className="text-on-secondary dark:text-dark-on-secondary">{t('login')}</UpBarItem>
-                <UpBarItem href={`/${locale}/register`} className="text-on-secondary dark:text-dark-on-secondary" >{t('register')}</UpBarItem>
+                {await isAuth() ? (
+                    <>
+                        {
+                            await isAdmin() ? (
+                                <UpBarItem href={`/${locale}/dashboard`} className="text-on-secondary dark:text-dark-on-secondary font-normal">
+                                    {t('dashboard')}
+                                </UpBarItem>
+                            ) : (
+                                <UpBarItem href={`/${locale}/guardian`} className="text-on-secondary dark:text-dark-on-secondary font-normal">
+                                    Guardian
+                                </UpBarItem>
+                            )
+                        }
+                        <Logout />
+                    </>
+
+
+                ) : (
+                    <>
+                        <UpBarItem href={`/${locale}/login`} className="text-on-secondary dark:text-dark-on-secondary">{t('login')}</UpBarItem>
+                        <UpBarItem href={`/${locale}/register`} className="text-on-secondary dark:text-dark-on-secondary" >{t('register')}</UpBarItem>
+                    </>
+                )}
                 <ToggleUpBar />
             </div>
         </header>

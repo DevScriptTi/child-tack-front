@@ -2,7 +2,7 @@
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export default function Mode() {
+export default function Mode( { className } : { className?: string } ) {
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     useEffect(() => {
@@ -27,7 +27,7 @@ export default function Mode() {
     return (
         <button
             onClick={toggleMode}
-            className="flex items-center justify-center size-10 text-on-secondary dark:text-dark-on-secondary cursor-pointer"
+            className={`flex items-center justify-center size-10 text-on-secondary dark:text-dark-on-secondary cursor-pointer ${className}`}
         >
             {isDarkMode ? (
                 <Sun size={24} />

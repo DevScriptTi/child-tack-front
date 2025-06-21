@@ -3,10 +3,10 @@
 import { Languages } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 
-export default function Lang() {
+export default function Lang({className}: { className?: string }) {
     return (
         <div
-            className="group relative flex items-center justify-center size-10 text-on-secondary dark:text-dark-on-secondary cursor-pointer"
+            className={`group relative flex items-center justify-center size-10 text-on-secondary dark:text-dark-on-secondary cursor-pointer ${className}`}
         >
             <Languages />
             <ul className="invisible group-hover:visible   absolute z-10 top-10 left-0 bg-background dark:bg-dark-background rounded-md shadow-md">

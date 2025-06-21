@@ -10,10 +10,10 @@ interface GetAdminResponse {
 
 export async function getAdmin(id: number): Promise<Admin> {
     try {
-        const { data } = await axiosInstance.get<GetAdminResponse>(
+        const { data } = await axiosInstance.get<Admin>(
             `/admins/${id}`
         )
-        return data.admin
+        return data
     } catch (error) {
         console.error('Error fetching admin:', error)
         throw error

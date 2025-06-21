@@ -23,6 +23,8 @@ export interface Key {
 export interface Admin {
     id: number;
     username: string;
+    name : string;
+    last : string ;
     key?: Key;
     created_at: string;
     updated_at: string;

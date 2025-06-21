@@ -3,6 +3,8 @@
 
 import axios from "axios";
 import { createSession } from "../tools/session";
+import { cookies } from "next/headers";
+import { revalidatePath } from "next/cache";
 
 const axiosInstance = axios.create({
     baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
@@ -44,3 +46,7 @@ export type LoginResponseError = {
         password ? : string[]
     }
 }
+
+
+
+

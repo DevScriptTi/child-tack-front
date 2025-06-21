@@ -1,8 +1,8 @@
 "use client";
 
-import { Admin } from "@/lib/server/types/admin/admin";
+import { createAdminKey } from "@/lib/server/actions/doctors/adminActions";
+import { Admin } from "@/lib/server/type/admin/admin";
 import { Key } from "lucide-react";
-import { createAdminKey } from "@/lib/server/actions/admin/adminActions";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 

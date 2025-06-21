@@ -27,10 +27,10 @@ export default async function layout({ children }: { children: React.ReactNode }
                         <NavItem icon={<Home size={18} />} link={`/${locale}/dashboard`}>
                             Home
                         </NavItem>
-                        <NavItem icon={<BringToFront size={18} />} link={`/${locale}/dashboard/Braclet`}>
+                        <NavItem icon={<BringToFront size={18} />} link={`/${locale}/dashboard/braclets`}>
                             Braclet
                         </NavItem>
-                        <NavItem icon={<Users size={18} />} link={`/${locale}/dashboard/Braclet`}>
+                        <NavItem icon={<Users size={18} />} link={`/${locale}/dashboard/guardians`}>
                             Guardian
                         </NavItem>
                     </NavGroup>

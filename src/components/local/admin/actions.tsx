@@ -1,8 +1,8 @@
 "use server";
-import { Admin } from "@/lib/server/types/admin/admin";
 import Link from "next/link";
 import { Pencil } from "lucide-react";
 import DeleteAdmin from "./delete";
+import { Admin } from "@/lib/server/type/admin/admin";
 
 export default async function AdminActions({ admin }: { admin: Admin }) {
     return (

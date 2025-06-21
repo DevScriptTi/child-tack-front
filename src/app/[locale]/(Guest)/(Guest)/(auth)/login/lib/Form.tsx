@@ -5,9 +5,10 @@ import { Input } from "@/components/Inputs/inputs";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { login } from "@/lib/server/join/login";
 import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 const LoginShema = z.object({
     email: z.string().email(),
     password: z.string().min(8, "Password must at list 8 char")
@@ -18,6 +19,8 @@ export default function LoginForm() {
     const { register, handleSubmit, setError, formState: { errors, isSubmitting } } = useForm<LoginData>({
         resolver: zodResolver(LoginShema)
     })
+    const route = useRouter();
+    const locale = useLocale();
     const onSubmit: SubmitHandler<LoginData> = async (data) => {
         try {
             const response = await login({
@@ -37,6 +40,8 @@ export default function LoginForm() {
                         message: response.error.errors.password[0]
                     });
                 }
+            } else {
+                route.push(`/${locale}/dashboard`)
             }
         } catch (error) {
             throw error
@@ -76,7 +81,7 @@ export default function LoginForm() {
                 )
 
             }
-          
+
         </form>
     )
 }

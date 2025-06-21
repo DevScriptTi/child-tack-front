@@ -1,13 +1,13 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Check } from "lucide-react";
 import { updateAdmin } from "@/lib/server/actions/doctors/adminActions";
 import { Input } from "@/components/Inputs/inputs";
 import Button from "@/components/Buttons/Button";
+import { Admin } from "@/lib/server/type/admin/admin";
 
 const updateAdminSchema = z.object({
     name: z.string()
@@ -27,7 +27,6 @@ interface UpdateAdminFormProps {
 }
 
 export default function UpdateAdminForm({ admin }: UpdateAdminFormProps) {
-    const router = useRouter();
     const {
         register,
         handleSubmit,

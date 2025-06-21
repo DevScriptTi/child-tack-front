@@ -190,7 +190,7 @@ export function DashContentPaginationItem({ children, href }: { children: React.
 }
 
 
-export function DeleteButton({ children }: { children: React.ReactNode }) {
+export function DeleteButton() {
     return (
         <Button>
             <Trash />

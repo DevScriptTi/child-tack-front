@@ -14,11 +14,17 @@ export default async function AdminsTable({ page }: AdminsTableProps) {
     return (
         <>
             <DashContentTable>
-                <TableThead list={['Username', 'Key', 'Email', 'Settings']} />
+                <TableThead list={['Username', 'name', 'last', 'Key', 'Email', 'Settings']} />
                 <tbody>
                     {admins?.data.map((admin) => (
                         <TableTr key={admin.id}>
                             <TableTdMain value={admin.username} />
+                            <TableTd>
+                                {admin.name}
+                            </TableTd>
+                            <TableTd>
+                                {admin.last}
+                            </TableTd>
                             <TableTd>
                                 {admin.key?.value || <CreateKey admin={admin} />}
                             </TableTd>

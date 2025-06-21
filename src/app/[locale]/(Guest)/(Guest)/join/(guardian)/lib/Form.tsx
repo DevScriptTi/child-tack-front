@@ -5,12 +5,12 @@ import { Input } from "@/components/Inputs/inputs";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { SimpleSelect } from "@/components/Inputs/SimpleSelect";
 import { useEffect, useState } from "react";
 import { getAllWilayas, Wilaya } from "@/lib/server/actions/wilaya/wilayaAcitons";
 import { join } from "@/lib/server/join/join";
-import { CheckCircle2, Link, Loader2 } from "lucide-react";
+import { CheckCircle2, Loader2 } from "lucide-react";
 const JoinGuardianShema = z.object({
     firstName: z.string().min(2, "First name must be at least 2 characters"),
     lastName: z.string().min(2, "Last name must be at least 2 characters"),
@@ -63,7 +63,6 @@ export default function GuardianJoinForm() {
         }
     }
     const t = useTranslations('Auth.join')
-    const locale = useLocale()
     useEffect(() => {
         const fetchWilayas = async () => {
             const response = await getAllWilayas()

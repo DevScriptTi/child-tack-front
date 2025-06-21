@@ -9,7 +9,6 @@ export default async function layout({ children }: { children: React.ReactNode }
         <>
             <UpBar>
                 <UpBarItem href={`/${locale}`}>{t('home')}</UpBarItem>
-                <UpBarItem href={`/${locale}/dashboard`}>{t('dashboard')}</UpBarItem>
             </UpBar>
             {children}
         </>

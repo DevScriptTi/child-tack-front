@@ -1,7 +1,7 @@
-import { getAdmin } from "@/lib/server/actions/admin/getAdmin";
+import { getAdmin } from "@/lib/server/actions/doctors/getAdmin";
 import UpdateAdminForm from "./UpdateForm";
 import { Suspense } from "react";
-import AdminUpdateSkeleton from "@/lib/ui/components/local/Dashboard/Admin/AdminUpdateSkeleton";
+import AdminUpdateSkeleton from "./Admin/AdminUpdateSkeleton";
 
 export default async function UpdateAdmin({ admin }: { admin: number }) {
     return (
