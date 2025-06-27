@@ -58,6 +58,22 @@ export interface Braclet {
     created_at: string;
     updated_at: string;
     children_id: number;
+    dangers: {
+        id: number;
+        name: string;
+        created_at: string;
+        updated_at: string;
+        braclet_id: string;
+        location: {
+            id: number;
+            lat: number;
+            lng: number;
+            locationable_type: string;
+            locationable_id: number;
+            created_at: string;
+            updated_at: string;
+        }
+    }[];
     location: {
         id: number;
         lat: number;
@@ -103,7 +119,7 @@ export interface CreateChildrenRequest {
 // Success Response
 export interface CreateChildSuccessResponse {
     message: string;
-    data: Children; 
+    data: Children;
 }
 
 // Error Response

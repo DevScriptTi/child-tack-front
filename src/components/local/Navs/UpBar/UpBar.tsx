@@ -14,8 +14,8 @@ export default async function UpBar({ children }: { children: React.ReactNode })
         <header
             className="sticky z-10  h-header w-full px-2 md:px-4 lg:px-8 flex items-center bg-secondary dark:bg-dark-secondary"
         >
-            <UpBarItem href={`/${locale}`} className="text-on-secondary dark:text-dark-on-secondary font-normal">
-               <Image src={'/logo.png'} alt="logo" className="size-36" width={500} height={500}/>
+            <UpBarItem href={`/${locale}`}>
+               <Image src={'/logo.jpeg'} alt="logo" className="w-16 rounded-full overflow-hidden" width={500} height={500}/>
             </UpBarItem>
             <Mode />
             <Lang />
